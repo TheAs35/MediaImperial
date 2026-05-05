@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Media</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Pare de pagar 27% de comissão pro delivery. A Imperial Media coloca seu restaurante no Instagram e TikTok e enche sua casa de clientes diretos.">
+    
+    <!-- Fonts: Cormorant Garamond & Instrument Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0E0D0A',
+                            cream: '#F2EDE4',
+                            gold: '#C8A96E',
+                            'text-light': '#B0AA9F',
+                            'text-dark': '#6A6360'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Instrument Sans"', 'sans-serif'],
+                    },
+                    transitionTimingFunction: {
+                        'premium': 'cubic-bezier(0.32, 0.72, 0, 1)',
+                    },
+                    transitionDuration: {
+                        '700': '700ms',
+                        '1000': '1000ms',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Reset */
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            background-color: #0E0D0A;
+            color: #F2EDE4;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Double-Bezel Architecture / Glass */
+        .glass-dark-outer {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            padding: 0.5rem;
+        }
+        
+        .glass-dark-inner {
+            background-color: rgba(14, 13, 10, 0.6);
+            border-radius: 1.5rem;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* Noise Texture */
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="selection:bg-brand-gold/30 selection:text-white">
+
+    <div class="noise-overlay"></div>
+
+    <!-- NAVBAR (Fluid Island) -->
+    <header class="fixed top-6 left-0 w-full z-50 flex justify-center px-4 pointer-events-none">
+        <nav class="w-full md:w-max max-w-7xl pointer-events-auto">
+            <div class="glass-dark-outer rounded-full p-1 md:p-2 relative">
+                <div class="glass-dark-inner rounded-full px-3 md:px-6 py-1.5 md:py-3 flex items-center justify-between gap-2 md:gap-12 w-full">
+                    <a href="#" class="font-sans font-medium tracking-wide text-brand-cream text-[10px] md:text-sm flex items-center gap-1.5 md:gap-2 group shrink-0">
+                        <span class="tracking-widest uppercase">Imperial Media</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-gold transition-transform duration-500 ease-premium hidden sm:block"></span>
+                    </a>
+                    
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="#sobre" class="text-sm text-brand-text-light hover:text-brand-cream transition-colors duration-300">Sobre Nós</a>
+                        <a href="#metodo" class="text-sm text-brand-text-light hover:text-brand-cream transition-colors duration-300">Método</a>
+                        <a href="#cases" class="text-sm text-brand-text-light hover:text-brand-cream transition-colors duration-300">Cases</a>
+                        <a href="#contato" class="text-sm text-brand-text-light hover:text-brand-cream transition-colors duration-300">Contato</a>
+                        <a href="#servicos" class="text-sm text-brand-text-light hover:text-brand-cream transition-colors duration-300">Serviços</a>
+                    </div>
+
+                    <div class="flex items-center gap-1 md:gap-4 shrink-0">
+                        <a href="https://wa.me/5511940542386?text=Olá,%20vim%20pelo%20site%20da%20Imperial%20Media%20e%20gostaria%20de%20agendar%20meu%20diagnóstico%20gratuito." target="_blank" class=" border border-brand-gold/40 hover:border-brand-gold text-brand-gold rounded-full px-2.5 md:px-5 py-1 md:py-2 text-[9px] md:text-xs uppercase tracking-widest font-medium flex items-center gap-2 md:gap-3">
+                            <span class="hidden md:inline">Diagnóstico do Restaurante</span>
+                            <span class="md:hidden">Diagnóstico</span>
+                        </a>
+                        <button id="mobile-menu-btn" class="md:hidden text-brand-cream p-0.5 shrink-0" aria-label="Abrir Menu">
+                            <i class="ph ph-list text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Panel -->
+                <div id="mobile-menu" class="hidden absolute top-full left-0 w-full mt-4 glass-dark-inner rounded-2xl p-6 flex-col gap-6 text-center border border-brand-cream/10 z-50">
+                    <a href="#sobre" class="text-lg font-sans text-brand-cream border-b border-brand-cream/10 pb-4">Sobre Nós</a>
+                    <a href="#metodo" class="text-lg font-sans text-brand-cream border-b border-brand-cream/10 pb-4">Método</a>
+                    <a href="#cases" class="text-lg font-sans text-brand-cream border-b border-brand-cream/10 pb-4">Cases</a>
+                    <a href="#contato" class="text-lg font-sans text-brand-cream border-b border-brand-cream/10 pb-4">Contato</a>
+                    <a href="#servicos" class="text-lg font-sans text-brand-cream">Serviços</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SECTION 1: HERO -->
+    <section class="relative min-h-[100dvh] w-full flex items-center justify-center pt-24 px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-brand-dark">
+            <img src="assets/IMG_1669.jpg" alt="Costelaria" class="w-full h-full object-cover object-center opacity-30" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/90 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 md:mt-16">
+            <!-- Text Content -->
+            <div class="w-full md:w-[65%] flex flex-col gap-8">
+                
+                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif leading-[1] md:leading-[0.95] tracking-tight text-white drop-shadow-xl font-bold">
+                    Seu restaurante só fica cheio no fim de semana? <br class="hidden sm:block"/>
+                    <span class="italic text-brand-cream/80 font-normal text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-normal block mt-2 sm:mt-0">Aumente seu faturamento através da internet.</span>
+                </h1>
+                
+                <div class="mt-8 flex flex-col sm:flex-row gap-6">
+                    <a href="https://wa.me/5511940542386?text=Olá,%20vim%20pelo%20site%20da%20Imperial%20Media%20e%20gostaria%20de%20agendar%20meu%20diagnóstico%20gratuito." target="_blank" class=" bg-brand-gold text-brand-dark rounded-full px-8 py-4 text-sm font-bold uppercase tracking-widest flex items-center gap-4 w-max hover:bg-[#d6ba86] transition-colors shadow-lg">
+                        Diagnóstico Gratuito
+                        <div class="w-8 h-8 rounded-full bg-brand-dark/10 flex items-center justify-center">
+                            <i class="ph ph-arrow-right text-lg"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scattered Cards Column -->
+            <div class="w-full md:w-[40%] relative min-h-[280px] md:min-h-[400px] flex items-center justify-center mt-4 md:mt-0">
+                
+                <div class="absolute top-0 md:top-10 left-2 md:left-4 z-20 hover:-translate-y-2 transition-transform duration-500 scale-90 md:scale-100 origin-top-left">
+                    <div class="glass-dark-outer -rotate-3">
+                        <div class="glass-dark-inner px-4 py-2.5 md:px-8 md:py-5 flex flex-col gap-1 shadow-2xl">
+                            <span class="text-xl md:text-4xl font-serif text-brand-gold tracking-tight italic">R$ 100k+</span>
+                            <span class="text-[9px] md:text-xs font-sans text-brand-cream uppercase tracking-widest">Em 1 Campanha</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute top-1/2 md:top-1/2 -translate-y-1/2 right-2 md:-right-8 z-30 hover:-translate-y-2 transition-transform duration-500 scale-90 md:scale-100 origin-center">
+                    <div class="glass-dark-outer rotate-2">
+                        <div class="glass-dark-inner px-4 py-2.5 md:px-8 md:py-5 flex flex-col gap-1 shadow-2xl bg-brand-dark/80">
+                            <span class="text-xl md:text-4xl font-serif text-brand-cream tracking-tight">9M+</span>
+                            <span class="text-[9px] md:text-xs font-sans text-brand-text-light uppercase tracking-widest">Views Orgânicas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-12 md:bottom-10 left-6 md:left-24 z-10 hover:-translate-y-2 transition-transform duration-500 scale-90 md:scale-100 origin-bottom-left">
+                    <div class="glass-dark-outer -rotate-6">
+                        <div class="glass-dark-inner px-4 py-2.5 md:px-8 md:py-5 flex flex-col gap-1 shadow-2xl">
+                            <span class="text-xl md:text-4xl font-serif text-brand-cream tracking-tight">75k</span>
+                            <span class="text-[9px] md:text-xs font-sans text-brand-text-light uppercase tracking-widest">Seguidores do Zero</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glow Behind -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-gold/10 blur-[80px] rounded-full pointer-events-none"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SOBRE NÓS (Cream) -->
+    <section id="sobre" class="relative w-full py-16 md:py-32 bg-brand-cream text-brand-dark px-4 rounded-t-[3rem] -mt-10 z-20">
+        <div class="max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
+            
+            <div class="flex flex-col gap-6 md:gap-8 max-w-4xl">
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-serif tracking-tighter leading-[1.05] text-brand-dark">
+                    Seu restaurante é bom.<br class="hidden md:block"/>
+                    <span class="italic block mt-1 md:inline md:mt-0">O problema é que o iFood sabe disso antes dos seus clientes.</span>
+                </h2>
+                <p class="text-lg md:text-2xl text-brand-text-dark font-sans leading-relaxed">
+                    Donos de restaurante que faturam bem costumam ter o mesmo gargalo: dependem do app de delivery, cedem até 27% de comissão por pedido, e não têm uma audiência própria para acessar quando precisam. <br/><br/><span class="font-bold text-brand-dark">Com a gente, isso muda.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 pt-12 border-t border-brand-dark/10">
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-2xl font-serif text-brand-dark tracking-tight">Lucas & Bruna</h3>
+                    <div class="flex flex-col gap-1 text-sm font-sans text-brand-text-dark uppercase tracking-widest mb-6">
+                        <span>Lucas — Estratégia & Growth</span>
+                        <span>Bruna — Criação & Conteúdo</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 pt-6 border-t border-brand-dark/10">
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-brand-text-dark mb-1">Especialidade</span>
+                            <span class="block text-sm font-bold text-brand-dark">Gastronomia & Restaurantes</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-brand-text-dark mb-1">Foco</span>
+                            <span class="block text-sm font-bold text-brand-dark">Audiência Própria</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-brand-text-dark mb-1">Abordagem</span>
+                            <span class="block text-sm font-bold text-brand-dark">Conteúdo + Estratégia</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-brand-text-dark mb-1">Atendimento</span>
+                            <span class="block text-sm font-bold text-brand-dark">Exclusivo & Seletivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-8 text-brand-text-dark font-sans leading-relaxed text-lg">
+                    <p>
+                        Somos especialistas em colocar restaurantes no digital — Instagram, TikTok, conteúdo que faz barriga roncar antes do cliente chegar à mesa. Nossa missão: fazer o seu restaurante ser encontrado, lembrado e escolhido antes mesmo de alguém abrir o app de delivery.
+                    </p>
+                    <p>
+                        Já geramos picos de faturamento para a Costelaria Tokunfome, crescemos perfis do zero a 12k seguidores em 60 dias e construímos audiências de +75k sem investir nada em tráfego pago. Tudo com método, não com sorte.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: MÉTODO (Dark) -->
+    <section id="metodo" class="relative w-full py-16 md:py-32 bg-brand-dark px-4 rounded-t-[3rem] -mt-10 z-30">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
+                <div class="flex flex-col gap-6 max-w-2xl">
+                    <div class="w-max rounded-full border border-brand-cream/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium text-brand-text-light font-mono">
+                        Do delivery ao digital
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-serif tracking-tighter leading-[1.1]">
+                        Do app para a mesa.<br/>
+                        <span class="text-brand-gold italic">Sem pagar comissão pra ninguém.</span>
+                    </h2>
+                </div>
+                <p class="text-brand-text-light max-w-md font-sans text-lg">
+                    Métodos antigos perguntam "por que não está crescendo?". Nós perguntamos "onde estão seus clientes e por que ainda não te seguem?". Nosso sistema transforma o seu restaurante em um destino — não só uma opção no app.
+                </p>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-dark-outer h-full">
+                    <div class="glass-dark-inner p-10 h-full flex flex-col justify-between group">
+                        <div class="flex flex-col gap-6">
+                            <h3 class="text-2xl font-serif text-brand-cream">1. Diagnóstico do<br/>Restaurante</h3>
+                            <p class="text-brand-text-light font-sans leading-relaxed text-sm">
+                                Mapeamos seu negócio, público, concorrentes e o custo real do delivery no seu caixa. Nada de receita pronta.
+                            </p>
+                        </div>
+                        <div class="mt-12 flex flex-col gap-3 border-t border-brand-cream/10 pt-6">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-brand-text-light">Custo Real do Delivery</span>
+                                <span class="text-brand-gold font-mono">Comissão × Margem</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-brand-text-light">Auditoria de Concorrência</span>
+                                <span class="text-brand-gold font-mono">O que funciona</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-brand-text-light">Perfil de Público</span>
+                                <span class="text-brand-gold font-mono">Cliente ideal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-dark-outer h-full md:-translate-y-8">
+                    <div class="glass-dark-inner p-10 h-full flex flex-col justify-between group relative overflow-hidden">
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-gold/5 blur-3xl rounded-full"></div>
+                        <div class="flex flex-col gap-6 relative z-10">
+                            <h3 class="text-2xl font-serif text-brand-cream">2. Estratégia de<br/>Conteúdo</h3>
+                            <p class="text-brand-text-light font-sans leading-relaxed text-sm">
+                                Definimos formatos, cadência e gatilhos que funcionam para gastronomia. Posts que geram fome. Vídeos que geram reservas. Stories que geram hábito.
+                            </p>
+                        </div>
+                        <div class="mt-12 flex flex-col gap-2 relative z-10 text-brand-gold font-mono text-xs opacity-80">
+                            <span>> Criando estratégia de conteúdo...</span>
+                            <span class="">> Mapeando formatos gastronômicos...</span>
+                            <span class="">> Definindo cadência de publicação... <span class="animate-pulse">_</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-dark-outer h-full">
+                    <div class="glass-dark-inner p-10 h-full flex flex-col justify-between group">
+                        <div class="flex flex-col gap-6">
+                            <h3 class="text-2xl font-serif text-brand-cream">3. Execução &<br/>Análise</h3>
+                            <p class="text-brand-text-light font-sans leading-relaxed text-sm">
+                                Produção, edição e publicação com consistência e direção de arte premium. Cada dado vira decisão. Cada post, um cliente em potencial.
+                            </p>
+                        </div>
+                        <div class="mt-12 flex items-center gap-3 text-xs uppercase tracking-widest text-brand-gold/60 font-medium">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-gold/60"></span> ITERAÇÃO CONSTANTE
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: CASES (Cream) -->
+    <section id="cases" class="relative w-full py-16 md:py-32 bg-brand-cream text-brand-dark px-4 rounded-t-[3rem] -mt-10 z-40 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col gap-24">
+            
+            <div class="text-center md:text-left flex flex-col gap-6 max-w-3xl">
+                <h2 class="text-4xl md:text-6xl font-serif tracking-tighter text-brand-dark">Restaurantes que escolheram crescer.</h2>
+                <p class="text-brand-text-dark text-lg font-sans">
+                    Cases reais, números reais. Cada projeto prova que presença digital com método transforma seguidores em clientes — e clientes em fila de espera.
+                </p>
+            </div>
+
+            <!-- Case 1 (Costelaria) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+                <div class="w-full max-w-[280px] md:max-w-sm mx-auto aspect-[9/16] bg-brand-dark rounded-[2.5rem] p-2 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] relative">
+                    <div class="w-full h-full rounded-[2rem] overflow-hidden relative bg-black">
+                        <!-- VÍDEO DO REEL DO USUÁRIO -->
+                        <video loading="lazy" src="assets/Cópia de Tokunfome Conteúdo Narrado.mp4" autoplay loop muted playsinline class="w-full h-full object-cover opacity-90"></video>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col gap-6 md:gap-8 text-center md:text-left">
+                    <span class="font-serif italic text-xl md:text-2xl text-brand-gold">Mesa Cheia Fora do App</span>
+                    <h3 class="text-3xl md:text-4xl font-serif tracking-tight">Costelaria Tokunfome</h3>
+                    <p class="text-brand-text-dark font-sans leading-relaxed">
+                        Gestão completa das redes sociais com identidade visual forte, parcerias com influenciadores gastronômicos e campanhas sazonais. Resultado: picos consistentes de vendas alavancados pelo digital — clientes chegando pela porta, sem depender de comissão de delivery.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Galeria de Trabalho Visual -->
+            <div class="pt-24 border-t border-brand-dark/10 flex flex-col gap-16">
+                <div class="text-center flex flex-col gap-4 max-w-2xl mx-auto">
+                    <h3 class="text-4xl md:text-5xl font-serif tracking-tight text-brand-dark">Nosso Padrão Visual</h3>
+                    <p class="text-brand-text-dark font-sans text-lg">Direção de arte premium para atrair, reter e converter o público certo no digital.</p>
+                </div>
+
+                <!-- Grid Visual (Fotos e Vídeos) -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-center pb-12">
+                    <!-- Col 1 -->
+                    <div class="flex flex-col gap-4 md:gap-6 md:-translate-y-8">
+                        <div class="rounded-3xl overflow-hidden aspect-[4/5] bg-black shadow-lg">
+                            <video loading="lazy" src="assets/Cópia de Tokunfome Cinematográfico.mp4" autoplay loop muted playsinline class="w-full h-full object-cover opacity-90"></video>
+                        </div>
+                        <div class="rounded-3xl overflow-hidden aspect-square bg-black shadow-lg">
+                            <img loading="lazy" src="assets/IMG_1506.jpg" alt="Gastronomia" class="w-full h-full object-cover opacity-90">
+                        </div>
+                    </div>
+                    <!-- Col 2 -->
+                    <div class="flex flex-col gap-4 md:gap-6 md:translate-y-4">
+                        <div class="rounded-3xl overflow-hidden aspect-square bg-black shadow-lg">
+                            <img loading="lazy" src="assets/IMG_1518.jpg" alt="Gastronomia" class="w-full h-full object-cover opacity-90">
+                        </div>
+                        <div class="rounded-3xl overflow-hidden aspect-[4/5] bg-black shadow-lg">
+                            <video loading="lazy" src="assets/Cópia de Tokunfome Conteúdo.mp4" autoplay loop muted playsinline class="w-full h-full object-cover opacity-90"></video>
+                        </div>
+                    </div>
+                    <!-- Col 3 -->
+                    <div class="flex flex-col gap-4 md:gap-6 md:-translate-y-4">
+                        <div class="rounded-3xl overflow-hidden aspect-[4/5] bg-black shadow-lg">
+                            <video loading="lazy" src="assets/Cópia de Boutique TKF Cinematográfico.mp4" autoplay loop muted playsinline class="w-full h-full object-cover opacity-90"></video>
+                        </div>
+                        <div class="rounded-3xl overflow-hidden aspect-square bg-black shadow-lg">
+                            <img loading="lazy" src="assets/IMG_1655.jpg" alt="Gastronomia" class="w-full h-full object-cover opacity-90">
+                        </div>
+                    </div>
+                    <!-- Col 4 -->
+                    <div class="flex flex-col gap-4 md:gap-6 md:translate-y-8">
+                        <div class="rounded-3xl overflow-hidden aspect-square bg-black shadow-lg">
+                            <img loading="lazy" src="assets/IMG_1620.jpg" alt="Gastronomia" class="w-full h-full object-cover opacity-90">
+                        </div>
+                        <div class="rounded-3xl overflow-hidden aspect-[4/5] bg-black shadow-lg">
+                            <img loading="lazy" src="assets/IMG_1605.jpg" alt="Gastronomia" class="w-full h-full object-cover opacity-90">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4.5: AGREGAR (Cream) -->
+    <section class="relative w-full py-16 md:py-32 bg-[#EBE5DA] text-brand-dark px-4 rounded-t-[3rem] -mt-10 z-40">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-center">
+            
+            <!-- Text Content -->
+            <div class="w-full md:w-[45%] flex flex-col gap-6">
+                <div class="w-max rounded-full border border-brand-dark/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium text-brand-dark/60 font-mono">
+                    Impacto Real
+                </div>
+                <h2 class="text-4xl md:text-5xl font-serif tracking-tighter leading-tight">
+                    Entenda como podemos agregar ao seu restaurante!
+                </h2>
+                <p class="text-brand-text-dark font-sans text-lg mt-2">
+                    Nós não vendemos "posts bonitos", entregamos engenharia de vendas pura. Nosso foco é resolver as dores reais da sua operação e fazer a sua casa encher de verdade.
+                </p>
+            </div>
+
+            <!-- List/Checklist -->
+            <div class="w-full md:w-[55%] flex flex-col gap-3">
+                <div class="flex items-center gap-4 bg-white/50 p-5 rounded-2xl shadow-sm border border-brand-dark/5 hover:bg-white hover:scale-[1.02] transition-all">
+                    <i class="ph-fill ph-check-circle text-brand-gold text-2xl shrink-0"></i>
+                    <span class="font-sans font-medium text-lg">Aumentar o número de pedidos no delivery</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white/50 p-5 rounded-2xl shadow-sm border border-brand-dark/5 hover:bg-white hover:scale-[1.02] transition-all">
+                    <i class="ph-fill ph-check-circle text-brand-gold text-2xl shrink-0"></i>
+                    <span class="font-sans font-medium text-lg">Não dependa das plataformas para vender</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white/50 p-5 rounded-2xl shadow-sm border border-brand-dark/5 hover:bg-white hover:scale-[1.02] transition-all">
+                    <i class="ph-fill ph-check-circle text-brand-gold text-2xl shrink-0"></i>
+                    <span class="font-sans font-medium text-lg">Aumentar o movimento no salão</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white/50 p-5 rounded-2xl shadow-sm border border-brand-dark/5 hover:bg-white hover:scale-[1.02] transition-all">
+                    <i class="ph-fill ph-check-circle text-brand-gold text-2xl shrink-0"></i>
+                    <span class="font-sans font-medium text-lg">Ações de marketing e metrificação de resultados</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white/50 p-5 rounded-2xl shadow-sm border border-brand-dark/5 hover:bg-white hover:scale-[1.02] transition-all">
+                    <i class="ph-fill ph-check-circle text-brand-gold text-2xl shrink-0"></i>
+                    <span class="font-sans font-medium text-lg">Entender os seus indicadores de resultados</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white/50 p-5 rounded-2xl shadow-sm border border-brand-dark/5 hover:bg-white hover:scale-[1.02] transition-all">
+                    <i class="ph-fill ph-check-circle text-brand-gold text-2xl shrink-0"></i>
+                    <span class="font-sans font-medium text-lg">Acelerar o seu crescimento</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white/50 p-5 rounded-2xl shadow-sm border border-brand-dark/5 hover:bg-white hover:scale-[1.02] transition-all">
+                    <i class="ph-fill ph-check-circle text-brand-gold text-2xl shrink-0"></i>
+                    <span class="font-sans font-medium text-lg">Tornar a sua empresa referência de mercado</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: SERVIÇOS (Dark) -->
+    <section id="servicos" class="relative w-full py-16 md:py-32 bg-brand-dark text-brand-cream px-4 rounded-t-[3rem] -mt-10 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col gap-24">
+            
+            <div class="flex flex-col gap-6 max-w-3xl">
+                <div class="w-max rounded-full border border-brand-cream/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium text-brand-cream/60 font-mono">
+                    Para restaurantes que querem crescer
+                </div>
+                <h2 class="text-4xl md:text-5xl font-serif tracking-tighter text-white">Tudo o que seu restaurante precisa.</h2>
+                <p class="text-brand-text-light font-sans text-lg">
+                    Sem contratar 5 fornecedores diferentes. Integramos estratégia, criação e distribuição para transformar seguidores em clientes e clientes em frequentadores.
+                </p>
+            </div>
+
+            <!-- "Packed Data" Grid with Blocks -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-strategy text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">1. Planejamento Estratégico</span>
+                </div>
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-swatches text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">2. Identidade Visual & Branding</span>
+                </div>
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-instagram-logo text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">3. Gestão de Instagram e TikTok</span>
+                </div>
+                
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-camera-plus text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">4. Fotos e Vídeos de Pratos</span>
+                </div>
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-target text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">5. Campanhas de Performance</span>
+                </div>
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-video text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">6. Reels Gastronômicos Premium</span>
+                </div>
+                
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-trend-down text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">7. Estratégia Anti-Delivery</span>
+                </div>
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-chart-line-up text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">8. Dashboards de Resultado</span>
+                </div>
+                <div class="bg-brand-cream/5 border border-brand-cream/10 rounded-3xl p-6 md:p-8 flex flex-col gap-4 group hover:bg-brand-cream/10 transition-colors">
+                    <i class="ph ph-film-strip text-3xl text-brand-gold"></i>
+                    <span class="font-sans font-medium text-lg">9. Cobertura Audiovisual</span>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: CTA WHATSAPP HOOK -->
+    <section id="contato" class="relative w-full py-16 md:py-24 bg-brand-cream text-brand-dark px-4 z-40 pb-32">
+        <div class="max-w-4xl mx-auto flex flex-col items-center gap-10">
+            <div class="text-center flex flex-col gap-4">
+                <i class="ph-fill ph-whatsapp-logo text-6xl text-[#25D366] mx-auto mb-4 drop-shadow-md"></i>
+                <h2 class="text-4xl md:text-5xl font-serif tracking-tighter italic">Diagnóstico Gratuito</h2>
+                <p class="text-brand-text-dark font-sans text-lg max-w-xl mx-auto mt-2">
+                    Em uma call de 30 minutos, vamos entender o momento do seu restaurante, mapear os gargalos da sua operação digital e montar um plano de ação estruturado para você faturar mais através da internet.
+                </p>
+            </div>
+            
+            <a href="https://wa.me/5511940542386?text=Olá,%20vim%20pelo%20site%20da%20Imperial%20Media%20e%20gostaria%20de%20agendar%20meu%20diagnóstico%20gratuito." target="_blank" class=" bg-[#25D366] text-white rounded-full px-5 md:px-8 py-4 md:py-5 text-xs md:text-sm font-bold uppercase tracking-widest flex items-center gap-3 md:gap-4 hover:bg-[#1DA851] transition-colors shadow-xl text-center">
+                <span class="hidden sm:inline">Quero meu diagnóstico gratuito</span>
+                <span class="sm:hidden">Diagnóstico Gratuito</span>
+                <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                    <i class="ph ph-chat-circle-dots text-base md:text-lg"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 8: FOOTER (Dark) -->
+    <footer class="w-full bg-brand-dark px-4 pb-12 z-[60] relative pt-32">
+        <div class="max-w-7xl mx-auto flex flex-col gap-12">
+            
+            <!-- Headline Footer -->
+            <div class="flex flex-col gap-2 mb-8 md:mb-12">
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-serif text-brand-cream tracking-tighter leading-tight">
+                    Nós não apenas gerenciamos redes sociais.
+                </h2>
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-serif italic text-brand-gold tracking-tighter leading-tight">
+                    Nós enchemos mesas.
+                </h2>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 border-t border-brand-cream/10 pt-12">
+                <div class="flex flex-col gap-6 max-w-sm">
+                    <div class="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-brand-gold/80">
+                        <div class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></div>
+                        Especialistas em Restaurantes
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-6 md:gap-8 text-sm font-sans tracking-wide text-brand-text-light">
+                    <a href="#sobre" class="hover:text-brand-gold transition-colors">Sobre Nós</a>
+                    <a href="#metodo" class="hover:text-brand-gold transition-colors">Método</a>
+                    <a href="#cases" class="hover:text-brand-gold transition-colors">Cases</a>
+                    <a href="#servicos" class="hover:text-brand-gold transition-colors">Serviços</a>
+                    <a href="https://wa.me/5511940542386?text=Olá,%20vim%20pelo%20site%20da%20Imperial%20Media%20e%20gostaria%20de%20agendar%20meu%20diagnóstico%20gratuito." target="_blank" class="hover:text-brand-gold transition-colors">WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center text-xs text-brand-text-dark font-sans tracking-wide">
+                <span>&copy; 2026 Imperial Media</span>
+                <span>All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE MENU SCRIPT -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        });
+        
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('mobile-menu').classList.remove('flex');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
