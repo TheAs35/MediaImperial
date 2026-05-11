@@ -20,7 +20,7 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '958800103709928');
-    fbq('track', 'PageView');
+    // PageView is fired from the deduplicated tracker at the end of <body>
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=958800103709928&ev=PageView&noscript=1"
@@ -623,17 +623,59 @@
             });
         });
 
-        // Meta Pixel — Lead event on WhatsApp clicks
-        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-            link.addEventListener('click', () => {
+        // Meta Pixel + Conversions API (deduplicated via event_id)
+        (function() {
+            function getCookie(name) {
+                const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+                return m ? m.pop() : '';
+            }
+
+            function genEventId() {
+                if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+                return Date.now() + '-' + Math.random().toString(36).slice(2);
+            }
+
+            function sendCAPI(eventName, eventId, customData) {
+                try {
+                    fetch('/api/track', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            event_name: eventName,
+                            event_id: eventId,
+                            event_source_url: window.location.href,
+                            user_data: {
+                                fbp: getCookie('_fbp'),
+                                fbc: getCookie('_fbc')
+                            },
+                            custom_data: customData || {}
+                        }),
+                        keepalive: true
+                    }).catch(function(){});
+                } catch (e) {}
+            }
+
+            function trackBoth(eventName, customData) {
+                const eid = genEventId();
                 if (typeof fbq === 'function') {
-                    fbq('track', 'Lead', {
+                    fbq('track', eventName, customData || {}, { eventID: eid });
+                }
+                sendCAPI(eventName, eid, customData);
+            }
+
+            // PageView (deduplicated)
+            trackBoth('PageView');
+
+            // Lead on every WhatsApp CTA click
+            document.querySelectorAll('a[href*="wa.me"]').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    trackBoth('Lead', {
                         content_name: 'WhatsApp Diagnóstico Gratuito',
                         content_category: 'Contato'
                     });
-                }
+                });
             });
-        });
+        })();
     </script>
 </body>
 </html>
