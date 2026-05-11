@@ -622,6 +622,18 @@
                 document.getElementById('mobile-menu').classList.remove('flex');
             });
         });
+
+        // Meta Pixel — Lead event on WhatsApp clicks
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', {
+                        content_name: 'WhatsApp Diagnóstico Gratuito',
+                        content_category: 'Contato'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
